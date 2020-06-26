@@ -17,6 +17,14 @@ func NewMatrix(min Point, max Point) Matrix {
 	return Matrix{[4]Point{topLeftPoint, topRightPoint, lowerRightPoint, lowerLeftPoint}}
 }
 
+func (m Matrix) Width() float64 {
+	return m.MaxX() - m.MinX()
+}
+
+func (m Matrix) Height() float64 {
+	return m.MaxY() - m.MinY()
+}
+
 func (m Matrix) MinX() float64 {
 	minX := m.PointList[0].X
 	for _, v := range m.PointList {
