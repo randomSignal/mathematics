@@ -160,23 +160,7 @@ func (m Matrix) Contain(args Matrix) bool {
 
 // 矩阵矫正
 func (m Matrix) Correction() Matrix {
-	offset := 0
-	for i := 0; i < len(m.PointList); i++ {
-		if m.PointList[i].X == m.MinX() && m.PointList[i].Y == m.MinY() {
-			offset = i
-			break
-		}
-	}
-
-	topLeftPoint := m.PointList[offset]
-	offset++
-	topRightPoint := m.PointList[offset%4]
-	offset++
-	lowerRightPoint := m.PointList[offset%4]
-	offset++
-	lowerLeftPoint := m.PointList[offset%4]
-
-	return Matrix{[4]Point{topLeftPoint, topRightPoint, lowerRightPoint, lowerLeftPoint}}
+	return Matrix{[4]Point{m.TopLeftPoint(), m.TopRightPoint(), m.LowerRightPoint(), m.LowerLeftPoint()}}
 }
 
 // 矩阵相交面积
