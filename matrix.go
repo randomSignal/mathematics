@@ -225,7 +225,7 @@ func (m Matrix) IntersectionArea(args Matrix) float64 {
 
 		} else {
 			height = argsCorrection.PointList[3].Y - argsCorrection.PointList[0].Y
-			width = mCorrection.PointList[1].X - argsCorrection.PointList[0].Y
+			width = mCorrection.PointList[1].X - argsCorrection.PointList[0].X
 		}
 
 		return width * height
